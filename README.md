@@ -4,7 +4,7 @@ Sitio web personal de Manuel González Santos desarrollado con HTML5, CSS3 y rec
 
 ## 📋 Descripción
 
-Este proyecto consiste en un sitio web personal estático compuesto por tres páginas HTML:
+Este proyecto consiste en un sitio web personal estático compuesto por tres páginas web:
 
 - **index.html** - Página "Sobre mí" con información personal y de contacto
 - **intereses.html** - Página de intereses profesionales con contenido multimedia
@@ -13,19 +13,18 @@ Este proyecto consiste en un sitio web personal estático compuesto por tres pá
 ## 📁 Estructura del Proyecto
 
 ```
-trabajo_1/
-├── index.html           # Página principal "Sobre mí"
-├── intereses.html       # Página de intereses
-├── proyectos.html       # Página de proyectos
-├── style.css            # Estilos CSS del sitio
-├── img/                 # Recursos multimedia
-│   ├── manuel.jpg       # Fotografía personal
-│   ├── github-logo.jpg  # Logo de GitHub
-│   ├── inetum-logo.png  # Logo de empresa
-│   ├── oviedo.mp4       # Video en formato MP4
-│   ├── oviedo.webm      # Video en formato WebM
-│   └── oviedo.ogv       # Video en formato OGV
-└── README.md            # Este archivo
+index.html           # Página principal "Sobre mí"
+intereses.html       # Página de intereses
+proyectos.html       # Página de proyectos
+style.css            # Estilos CSS del sitio
+img/                 # Recursos multimedia
+├── manuel.jpg       # Fotografía personal
+├── github-logo.jpg  # Logo de GitHub
+├── inetum-logo.png  # Logo de empresa
+├── oviedo.mp4       # Video en formato MP4
+├── oviedo.webm      # Video en formato WebM
+└── oviedo.ogv       # Video en formato OGV
+README.md            # Este archivo
 ```
 
 ## 🚀 Cómo Lanzar la Página Web
@@ -80,11 +79,5 @@ npx serve .
 
 El servidor se iniciará automáticamente (por defecto en puerto 3000).  
 Abre tu navegador en: **http://localhost:3000**
-
-Para especificar un puerto personalizado:
-
-```powershell
-npx serve . -l 8080
-```
 
 > 💡 **Nota:** `npx` viene incluido con Node.js, por lo que no necesitas instalar nada más. La primera vez que ejecutes `npx serve` puede tardar unos segundos mientras descarga el paquete temporalmente.
