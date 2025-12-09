@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "interests": "Intereses",
+    "projects": "Proyectos"
+  },
+  "breadcrumb": {
+    "home": "Inicio"
+  },
+  "index": {
+    "title": "Sobre mí",
+    "tooltip": "En esta sección encontrarás información personal sobre mi formación académica y datos de contacto profesional.",
+    "personalInfo": "Información Personal",
+    "personalInfoTooltip": "Presentación personal que incluye mi formación como Ingeniero Informático y mi enfoque profesional en desarrollo de software.",
+    "description": "Soy <strong>Ingeniero Informático</strong> formado en la <em>Escuela de Ingeniería Informática de la Universidad de Oviedo</em>. Mi enfoque está en el <strong>desarrollo de software</strong>, la gestión de proyectos TIC y la innovación en el sector tecnológico.",
+    "contactData": "Datos de contacto",
+    "linkedin": "LinkedIn:",
+    "profile": "Perfil",
+    "github": "GitHub:",
+    "repository": "Repositorio"
+  },
+  "interests": {
+    "title": "Intereses",
+    "tooltip": "Descubre mis áreas de interés profesional en tecnología y mis pasiones personales fuera del ámbito laboral.",
+    "areasTitle": "Áreas de interés",
+    "areasTooltip": "Mis principales áreas de interés profesional incluyen desarrollo de software, optimización y gestión de proyectos TIC.",
+    "softwareDev": "Desarrollo de software",
+    "softwareDevDesc": "Me interesa trabajar en entornos <strong>Full-Stack</strong>, aplicando tecnologías modernas como Angular, Spring y arquitecturas cliente-servidor.",
+    "optimization": "Optimización y sostenibilidad",
+    "optimizationDesc": "Busco aplicar <em>ciencia de datos</em> e <em>inteligencia artificial</em> a proyectos de movilidad, eficiencia energética y sostenibilidad en TIC.",
+    "projectMgmt": "Gestión de proyectos",
+    "projectMgmtDesc": "Estoy interesado en metodologías ágiles, planificación de proyectos TIC y la mejora de procesos de desarrollo de software.",
+    "football": "Fútbol",
+    "footballDesc": "El <strong>fútbol</strong> es una de mis grandes pasiones. Sigo especialmente al <em>Real Oviedo</em> y disfruto grabando y compartiendo momentos relacionados con este deporte.",
+    "videoCaption": "Vídeo relacionado con el Real Oviedo:",
+    "videoNotSupported": "Tu navegador no soporta el elemento de vídeo."
+  },
+  "projects": {
+    "title": "Proyectos",
+    "tooltip": "Aquí puedes ver los proyectos más destacados que he desarrollado, incluyendo mi Trabajo Fin de Grado y otros proyectos disponibles en GitHub.",
+    "tfg": "Trabajo Fin de Grado",
+    "tfgTooltip": "Proyecto final de carrera desarrollado en colaboración con Inetum para la Administración del Principado de Asturias.",
+    "tfgSubtitle": "Aplicación web para la centralización de datos de aplicaciones de la Administración del Principado de Asturias",
+    "tfgCaption": "Colaboración con Inetum en el TFG",
+    "tfgDescription": "Descripción: Desarrollo de una aplicación web para la empresa <em>Inetum</em>, que permite centralizar datos de aplicaciones del Principado de Asturias. Incluye funcionalidades de gestión de aplicaciones, entornos, logs y usuarios de prueba, utilizando <strong>Angular</strong> en el frontend y <strong>Spring</strong> en el backend.",
+    "githubTitle": "Repositorios en GitHub",
+    "githubCaption": "Mis proyectos disponibles en GitHub",
+    "githubIntro": "En mi cuenta de GitHub podrás encontrar proyectos de:",
+    "githubItem1": "Algoritmos de búsqueda y optimización (A*, heurísticas, TSP).",
+    "githubItem2": "Aplicaciones con gestión de inventarios y facturación.",
+    "githubItem3": "Ejercicios y prácticas académicas en <strong>Java</strong> y <strong>Python</strong>.",
+    "githubVisit": "Visita:"
+  },
+  "footer": {
+    "lastUpdate": "Última actualización:"
+  }
+}

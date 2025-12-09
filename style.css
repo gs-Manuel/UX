@@ -19,13 +19,87 @@ body {
 header {
   background: #004080;
   color: #fff;
-  padding: 1rem;
-  text-align: center;
+  padding: 1rem 2rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-self: start;
+}
+
+.header-logo {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.15rem solid #fff;
 }
 
 header h1 {
-  margin-bottom: 0.5rem;
-  font-size: 1.8rem;
+  margin: 0;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+header nav {
+  justify-self: center;
+}
+
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  .header-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  header nav {
+    width: 100%;
+  }
+}
+
+/* Selector de idioma */
+.language-selector {
+  display: flex;
+  gap: 0.5rem;
+  justify-self: end;
+}
+
+.language-selector button {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.language-selector button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-0.1rem);
+}
+
+.language-selector button.active {
+  background: #0066cc;
+  border-color: #0066cc;
 }
 
 nav ul {
@@ -33,6 +107,16 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
 nav a {
@@ -46,9 +130,57 @@ nav a:hover {
   text-decoration: underline;
 }
 
+nav a.active {
+  background-color: #0066cc;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+}
+
+/* Breadcrumbs */
+nav[aria-label="Breadcrumb"] {
+  background: #e8f0f8;
+  padding: 0.75rem 2rem;
+  border-bottom: 0.1rem solid #ccc;
+}
+
+nav[aria-label="Breadcrumb"] ol {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  max-width: 60rem;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+nav[aria-label="Breadcrumb"] li {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+nav[aria-label="Breadcrumb"] li:not(:last-child)::after {
+  content: "/";
+  margin-left: 0.5rem;
+  color: #666;
+}
+
+nav[aria-label="Breadcrumb"] a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+nav[aria-label="Breadcrumb"] a:hover {
+  text-decoration: underline;
+}
+
+nav[aria-label="Breadcrumb"] li[aria-current="page"] {
+  color: #666;
+  font-weight: normal;
+}
+
 main {
   padding: 2rem;
-  max-width: 60rem; 
+  max-width: 60rem;
   margin: auto;
   background: #fff;
   border-radius: 0.5rem;
@@ -58,12 +190,81 @@ h2 {
   color: #004080;
   margin-bottom: 1rem;
   font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 h3 {
   margin-top: 1rem;
   color: #0066cc;
   font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Iconos de ayuda y tooltips */
+.help-icon {
+  display: inline-flex;
+  align-items: center;
+  cursor: help;
+  position: relative;
+  color: #0066cc;
+  transition: color 0.3s;
+}
+
+.help-icon:hover {
+  color: #004080;
+}
+
+.help-icon svg {
+  display: block;
+}
+
+.help-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.3rem;
+  font-size: 0.85rem;
+  white-space: normal;
+  width: 15rem;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  pointer-events: none;
+  margin-bottom: 0.5rem;
+  z-index: 1000;
+  line-height: 1.4;
+  font-weight: normal;
+}
+
+.help-icon::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.4rem solid transparent;
+  border-top-color: #333;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.help-icon:hover::after,
+.help-icon:hover::before {
+  opacity: 1;
+  visibility: visible;
 }
 
 figure {
@@ -99,17 +300,50 @@ figcaption {
 
 footer {
   text-align: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
   background: #004080;
   color: #fff;
   margin-top: 2rem;
   font-size: 0.9rem;
 }
-figure video {
-  width: 100%;        
-  max-width: 30rem;   
+
+footer > div {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+footer p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+footer div div {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+footer a {
+  color: #fff;
+  transition: opacity 0.3s, transform 0.3s;
+  display: inline-flex;
+  align-items: center;
+}
+
+footer a:hover {
+  opacity: 0.7;
+  transform: translateY(-0.2rem);
+}
+
+footer svg {
   display: block;
-  margin: 1rem auto;  
+}
+figure video {
+  width: 100%;
+  max-width: 30rem;
+  display: block;
+  margin: 1rem auto;
   border-radius: 0.5rem;
 }
 
@@ -119,4 +353,3 @@ figure figcaption {
   color: #555;
   font-size: 0.9rem;
 }
-

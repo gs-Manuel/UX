@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "about": "About Me",
+    "interests": "Interests",
+    "projects": "Projects"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "index": {
+    "title": "About Me",
+    "tooltip": "In this section you will find personal information about my academic background and professional contact details.",
+    "personalInfo": "Personal Information",
+    "personalInfoTooltip": "Personal introduction including my background as a Computer Engineer and my professional focus on software development.",
+    "description": "I am a <strong>Computer Engineer</strong> trained at the <em>School of Computer Engineering at the University of Oviedo</em>. My focus is on <strong>software development</strong>, ICT project management and innovation in the technology sector.",
+    "contactData": "Contact Details",
+    "linkedin": "LinkedIn:",
+    "profile": "Profile",
+    "github": "GitHub:",
+    "repository": "Repository"
+  },
+  "interests": {
+    "title": "Interests",
+    "tooltip": "Discover my areas of professional interest in technology and my personal passions outside the work environment.",
+    "areasTitle": "Areas of Interest",
+    "areasTooltip": "My main areas of professional interest include software development, optimization and ICT project management.",
+    "softwareDev": "Software Development",
+    "softwareDevDesc": "I am interested in working in <strong>Full-Stack</strong> environments, applying modern technologies like Angular, Spring and client-server architectures.",
+    "optimization": "Optimization and Sustainability",
+    "optimizationDesc": "I seek to apply <em>data science</em> and <em>artificial intelligence</em> to mobility projects, energy efficiency and sustainability in ICT.",
+    "projectMgmt": "Project Management",
+    "projectMgmtDesc": "I am interested in agile methodologies, ICT project planning and improving software development processes.",
+    "football": "Football",
+    "footballDesc": "<strong>Football</strong> is one of my great passions. I particularly follow <em>Real Oviedo</em> and enjoy recording and sharing moments related to this sport.",
+    "videoCaption": "Video related to Real Oviedo:",
+    "videoNotSupported": "Your browser does not support the video element."
+  },
+  "projects": {
+    "title": "Projects",
+    "tooltip": "Here you can see the most outstanding projects I have developed, including my Final Degree Project and other projects available on GitHub.",
+    "tfg": "Final Degree Project",
+    "tfgTooltip": "Final degree project developed in collaboration with Inetum for the Administration of the Principality of Asturias.",
+    "tfgSubtitle": "Web application for centralization of application data from the Administration of the Principality of Asturias",
+    "tfgCaption": "Collaboration with Inetum on the Final Degree Project",
+    "tfgDescription": "Description: Development of a web application for the company <em>Inetum</em>, which allows centralization of application data from the Principality of Asturias. It includes functionalities for managing applications, environments, logs and test users, using <strong>Angular</strong> in the frontend and <strong>Spring</strong> in the backend.",
+    "githubTitle": "GitHub Repositories",
+    "githubCaption": "My projects available on GitHub",
+    "githubIntro": "In my GitHub account you can find projects on:",
+    "githubItem1": "Search and optimization algorithms (A*, heuristics, TSP).",
+    "githubItem2": "Applications with inventory and billing management.",
+    "githubItem3": "Academic exercises and practices in <strong>Java</strong> and <strong>Python</strong>.",
+    "githubVisit": "Visit:"
+  },
+  "footer": {
+    "lastUpdate": "Last update:"
+  }
+}
