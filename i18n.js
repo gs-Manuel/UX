@@ -69,7 +69,8 @@ const i18n = {
       const key = element.getAttribute("data-i18n");
       const translation = this.t(key);
 
-      if (element.hasAttribute("data-i18n-html")) {
+      // Usar innerHTML si contiene etiquetas HTML, sino textContent
+      if (element.hasAttribute("data-i18n-html") || translation.includes("<")) {
         element.innerHTML = translation;
       } else {
         element.textContent = translation;
@@ -82,9 +83,16 @@ const i18n = {
       element.setAttribute("data-tooltip", this.t(key));
     });
 
+    // Traducir placeholders
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+      const key = element.getAttribute("data-i18n-placeholder");
+      element.setAttribute("placeholder", this.t(key));
+    });
+
     // Actualizar títulos de página
     const pageTitles = {
       "index.html": this.t("index.title"),
+      "formacion.html": this.t("education.title"),
       "intereses.html": this.t("interests.title"),
       "proyectos.html": this.t("projects.title"),
     };
@@ -99,6 +107,16 @@ const i18n = {
     document.querySelectorAll(".language-selector button").forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.lang === this.currentLocale);
     });
+
+    // Regenerar breadcrumbs con el nuevo idioma
+    if (typeof generateBreadcrumbs === "function") {
+      generateBreadcrumbs();
+    }
+
+    // Actualizar la fecha de última modificación con el nuevo formato de locale
+    if (typeof updateLastModifiedDate === "function") {
+      updateLastModifiedDate();
+    }
   },
 };
 
@@ -114,3 +132,6 @@ if (document.readyState === "loading") {
     i18n.translatePage();
   })();
 }
+
+// Exponer i18n globalmente
+window.i18n = i18n;

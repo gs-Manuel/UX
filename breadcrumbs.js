@@ -2,15 +2,19 @@
 const pageConfig = {
   "index.html": {
     id: "nav-index",
-    title: "Sobre mí",
+    i18nKey: "breadcrumb.about",
+  },
+  "formacion.html": {
+    id: "nav-formacion",
+    i18nKey: "breadcrumb.education",
   },
   "intereses.html": {
     id: "nav-intereses",
-    title: "Intereses",
+    i18nKey: "breadcrumb.interests",
   },
   "proyectos.html": {
     id: "nav-proyectos",
-    title: "Proyectos",
+    i18nKey: "breadcrumb.projects",
   },
 };
 
@@ -38,7 +42,7 @@ function generateBreadcrumbs() {
   homeLink.setAttribute("data-i18n", "breadcrumb.home");
   homeLink.textContent = window.i18n
     ? window.i18n.t("breadcrumb.home")
-    : "Inicio";
+    : "Manuel González Santos";
   homeItem.appendChild(homeLink);
   breadcrumbList.appendChild(homeItem);
 
@@ -46,7 +50,8 @@ function generateBreadcrumbs() {
   if (currentPage !== "index.html" && pageConfig[currentPage]) {
     const currentItem = document.createElement("li");
     currentItem.setAttribute("aria-current", "page");
-    currentItem.textContent = pageConfig[currentPage].title;
+    currentItem.setAttribute("data-i18n", pageConfig[currentPage].i18nKey);
+    currentItem.textContent = window.i18n.t(pageConfig[currentPage].i18nKey);
     breadcrumbList.appendChild(currentItem);
   }
 }
