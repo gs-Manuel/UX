@@ -28,14 +28,20 @@ header {
   gap: 1rem;
 }
 
-.header-left {
+header > div {
   display: flex;
   align-items: center;
   gap: 1rem;
   justify-self: start;
 }
 
-.header-logo {
+header > div > a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+header > div a img {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -53,11 +59,7 @@ header nav {
   justify-self: center;
 }
 
-.gcse-search {
-  justify-self: center;
-}
-
-.language-selector {
+header > div:last-of-type {
   justify-self: end;
 }
 
@@ -72,9 +74,12 @@ header nav {
     font-size: 1.3rem;
   }
 
-  .header-logo {
+  header > div a img {
     width: 2.5rem;
     height: 2.5rem;
+  }
+  header > div > a {
+    gap: 0.5rem;
   }
 
   header nav {
@@ -83,13 +88,13 @@ header nav {
 }
 
 /* Selector de idioma */
-.language-selector {
+header > div:last-of-type {
   display: flex;
   gap: 0.5rem;
   justify-self: end;
 }
 
-.language-selector button {
+header > div:last-of-type button {
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
   border: 0.1rem solid rgba(255, 255, 255, 0.3);
@@ -101,18 +106,18 @@ header nav {
   transition: all 0.3s;
 }
 
-.language-selector button:hover {
+header > div:last-of-type button:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-0.1rem);
 }
 
-.language-selector button.active {
+header > div:last-of-type button[data-lang][style*="background"] {
   background: #0066cc;
   border-color: #0066cc;
 }
 
 /* Buscador personalizado */
-.search-form {
+header form {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -121,7 +126,7 @@ header nav {
   position: relative;
 }
 
-.search-form input[type="text"] {
+header form input[type="text"] {
   flex: 1;
   padding: 0.5rem 0.75rem;
   border: 0.15rem solid rgba(255, 255, 255, 0.4);
@@ -133,15 +138,15 @@ header nav {
   transition: border-color 0.3s;
 }
 
-.search-form input[type="text"]:focus {
+header form input[type="text"]:focus {
   border-color: rgba(255, 255, 255, 0.8);
 }
 
-.search-form input[type="text"]::placeholder {
+header form input[type="text"]::placeholder {
   color: #666;
 }
 
-.search-form button {
+header form button {
   background: #0066cc;
   border: none;
   border-radius: 0.4rem;
@@ -156,16 +161,16 @@ header nav {
   height: 2.5rem;
 }
 
-.search-form button:hover {
+header form button:hover {
   background: #004080;
 }
 
-.search-form button svg {
+header form button svg {
   display: block;
 }
 
 /* Resultados de búsqueda */
-.search-results {
+header form > div {
   display: none;
   position: absolute;
   top: 100%;
@@ -182,20 +187,20 @@ header nav {
   min-width: 20rem;
 }
 
-.search-result-item {
+header form > div > div {
   padding: 1rem;
   border-bottom: 0.1rem solid #e8f0f8;
 }
 
-.search-result-item:last-child {
+header form > div > div:last-child {
   border-bottom: none;
 }
 
-.search-result-item:hover {
+header form > div > div:hover {
   background: #f8f9fa;
 }
 
-.search-result-title {
+header form > div > div > a {
   color: #0066cc;
   text-decoration: none;
   font-weight: bold;
@@ -204,31 +209,31 @@ header nav {
   margin-bottom: 0.3rem;
 }
 
-.search-result-title:hover {
+header form > div > div > a:hover {
   color: #004080;
   text-decoration: underline;
 }
 
-.search-result-snippet {
+header form > div > div > p {
   color: #666;
   font-size: 0.9rem;
   line-height: 1.4;
   margin: 0;
 }
 
-.search-result-snippet strong {
+header form > div > div > p strong {
   color: #333;
   font-weight: bold;
 }
 
 @media (max-width: 768px) {
-  .search-form {
+  header form {
     max-width: 100%;
     width: 100%;
     margin-top: 0.5rem;
   }
 
-  .search-results {
+  header form > div {
     min-width: 100%;
     max-width: 100%;
   }
@@ -337,7 +342,8 @@ h3 {
 }
 
 /* Iconos de ayuda y tooltips */
-.help-icon {
+h2 > span[data-tooltip],
+h3 > span[data-tooltip] {
   display: inline-flex;
   align-items: center;
   cursor: help;
@@ -346,15 +352,18 @@ h3 {
   transition: color 0.3s;
 }
 
-.help-icon:hover {
+h2 > span[data-tooltip]:hover,
+h3 > span[data-tooltip]:hover {
   color: #004080;
 }
 
-.help-icon svg {
+h2 > span[data-tooltip] svg,
+h3 > span[data-tooltip] svg {
   display: block;
 }
 
-.help-icon::after {
+h2 > span[data-tooltip]::after,
+h3 > span[data-tooltip]::after {
   content: attr(data-tooltip);
   position: absolute;
   bottom: 100%;
@@ -378,7 +387,8 @@ h3 {
   font-weight: normal;
 }
 
-.help-icon::before {
+h2 > span[data-tooltip]::before,
+h3 > span[data-tooltip]::before {
   content: "";
   position: absolute;
   bottom: 100%;
@@ -393,8 +403,10 @@ h3 {
   z-index: 1000;
 }
 
-.help-icon:hover::after,
-.help-icon:hover::before {
+h2 > span[data-tooltip]:hover::after,
+h2 > span[data-tooltip]:hover::before,
+h3 > span[data-tooltip]:hover::after,
+h3 > span[data-tooltip]:hover::before {
   opacity: 1;
   visibility: visible;
 }
@@ -527,21 +539,21 @@ main article > section ul li::before {
 }
 
 /* Iconos de tecnologías */
-.tech-icon {
+main article > section span:has(svg) {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
   margin-right: 0.5rem;
 }
 
-.tech-icon svg {
+main article > section span:has(svg) svg {
   width: 1.2rem;
   height: 1.2rem;
   vertical-align: middle;
 }
 
 /* Timeline para experiencia laboral */
-.job-period {
+main article > section p:has(em) {
   display: inline-block;
   background: #e8f0f8;
   padding: 0.25rem 0.75rem;
