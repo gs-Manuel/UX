@@ -103,7 +103,8 @@
     "lastUpdate": "Última actualización:"
   },
   "eyetracker": {
-    "title": "Eye Tracker",
+    "title": "Eye Tracker & Mouse Tracker",
+    "sectionTitle": "Eye Tracker",
     "initCamera": "Iniciar Cámara",
     "startCalibration": "Iniciar Calibración",
     "stopCalibration": "Detener Calibración",
@@ -112,5 +113,17 @@
     "downloadHeatmap": "Descargar Heatmap",
     "clearData": "Limpiar Datos",
     "exportCSV": "Exportar CSV"
+  },
+  "mousetracker": {
+    "sectionTitle": "Mouse Tracker",
+    "startTracking": "Iniciar Mouse Tracking",
+    "stopTracking": "Detener Mouse Tracking",
+    "pageStats": "Estadísticas por Página",
+    "downloadMovement": "Heatmap Movimiento",
+    "downloadClicks": "Heatmap Clicks",
+    "downloadScroll": "Heatmap Scroll",
+    "downloadCombined": "Heatmap Combinado",
+    "clearData": "Limpiar Datos Ratón",
+    "exportCSV": "Exportar CSV Ratón"
   }
 }

@@ -243,54 +243,111 @@
       </section>
     </footer>
 
-    <!-- Panel de control del Eye Tracker -->
+    <!-- Panel de control del Eye Tracker y Mouse Tracker -->
     <aside id="eyetracker-controls">
-      <h3 data-i18n="eyetracker.title">Eye Tracker</h3>
-      <menu>
-        <button id="btn-init-eyetracker" data-i18n="eyetracker.initCamera">
-          Iniciar Cámara
-        </button>
-        <button
-          id="btn-start-calibration"
-          disabled
-          data-i18n="eyetracker.startCalibration"
-        >
-          Iniciar Calibración
-        </button>
-        <button
-          id="btn-stop-calibration"
-          disabled
-          data-i18n="eyetracker.stopCalibration"
-        >
-          Detener Calibración
-        </button>
-        <button
-          id="btn-start-tracking"
-          disabled
-          data-i18n="eyetracker.startTracking"
-        >
-          Iniciar Tracking
-        </button>
-        <button
-          id="btn-stop-tracking"
-          disabled
-          data-i18n="eyetracker.stopTracking"
-        >
-          Detener Tracking
-        </button>
-        <button
-          id="btn-download-heatmap"
-          data-i18n="eyetracker.downloadHeatmap"
-        >
-          Descargar Heatmap
-        </button>
-        <button id="btn-clear-data" data-i18n="eyetracker.clearData">
-          Limpiar Datos
-        </button>
-        <button id="btn-export-data" data-i18n="eyetracker.exportCSV">
-          Exportar CSV
-        </button>
-      </menu>
+      <h3 data-i18n="eyetracker.title">Eye Tracker & Mouse Tracker</h3>
+
+      <!-- Sección Eye Tracker -->
+      <section>
+        <h4 data-i18n="eyetracker.sectionTitle">Eye Tracker</h4>
+        <menu>
+          <button id="btn-init-eyetracker" data-i18n="eyetracker.initCamera">
+            Iniciar Cámara
+          </button>
+          <button
+            id="btn-start-calibration"
+            disabled
+            data-i18n="eyetracker.startCalibration"
+          >
+            Iniciar Calibración
+          </button>
+          <button
+            id="btn-stop-calibration"
+            disabled
+            data-i18n="eyetracker.stopCalibration"
+          >
+            Detener Calibración
+          </button>
+          <button
+            id="btn-start-tracking"
+            disabled
+            data-i18n="eyetracker.startTracking"
+          >
+            Iniciar Tracking
+          </button>
+          <button
+            id="btn-stop-tracking"
+            disabled
+            data-i18n="eyetracker.stopTracking"
+          >
+            Detener Tracking
+          </button>
+          <button
+            id="btn-download-heatmap"
+            data-i18n="eyetracker.downloadHeatmap"
+          >
+            Descargar Heatmap
+          </button>
+          <button id="btn-clear-data" data-i18n="eyetracker.clearData">
+            Limpiar Datos
+          </button>
+          <button id="btn-export-data" data-i18n="eyetracker.exportCSV">
+            Exportar CSV
+          </button>
+        </menu>
+      </section>
+
+      <!-- Sección Mouse Tracker -->
+      <section>
+        <h4 data-i18n="mousetracker.sectionTitle">Mouse Tracker</h4>
+        <menu>
+          <button
+            id="btn-start-mouse-tracking"
+            data-i18n="mousetracker.startTracking"
+          >
+            Iniciar Mouse Tracking
+          </button>
+          <button
+            id="btn-stop-mouse-tracking"
+            data-i18n="mousetracker.stopTracking"
+          >
+            Detener Mouse Tracking
+          </button>
+          <button id="btn-page-stats" data-i18n="mousetracker.pageStats">
+            Estadísticas por Página
+          </button>
+          <button
+            id="btn-download-movement-heatmap"
+            data-i18n="mousetracker.downloadMovement"
+          >
+            Heatmap Movimiento
+          </button>
+          <button
+            id="btn-download-clicks-heatmap"
+            data-i18n="mousetracker.downloadClicks"
+          >
+            Heatmap Clicks
+          </button>
+          <button
+            id="btn-download-scroll-heatmap"
+            data-i18n="mousetracker.downloadScroll"
+          >
+            Heatmap Scroll
+          </button>
+          <button
+            id="btn-download-combined-heatmap"
+            data-i18n="mousetracker.downloadCombined"
+          >
+            Heatmap Combinado
+          </button>
+          <button id="btn-clear-mouse-data" data-i18n="mousetracker.clearData">
+            Limpiar Datos Ratón
+          </button>
+          <button id="btn-export-mouse-data" data-i18n="mousetracker.exportCSV">
+            Exportar CSV Ratón
+          </button>
+        </menu>
+      </section>
     </aside>
     <script defer src="i18n.js"></script>
     <script defer src="breadcrumbs.js"></script>
@@ -301,6 +358,7 @@
     <script src="webgazer.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/heatmap.js@2.0.5/build/heatmap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="mousetracker.js"></script>
     <script src="eyetracker.js"></script>
     <script>
       // Toggle Eye Tracker Panel
@@ -328,6 +386,105 @@
           // Prevenir que clics dentro del panel lo cierren
           panel.addEventListener("click", function (e) {
             e.stopPropagation();
+          });
+        }
+
+        // Mouse Tracker event listeners
+        const btnStartMouseTracking = document.getElementById(
+          "btn-start-mouse-tracking"
+        );
+        const btnStopMouseTracking = document.getElementById(
+          "btn-stop-mouse-tracking"
+        );
+        const btnPageStats = document.getElementById("btn-page-stats");
+        const btnDownloadMovement = document.getElementById(
+          "btn-download-movement-heatmap"
+        );
+        const btnDownloadClicks = document.getElementById(
+          "btn-download-clicks-heatmap"
+        );
+        const btnDownloadScroll = document.getElementById(
+          "btn-download-scroll-heatmap"
+        );
+        const btnDownloadCombined = document.getElementById(
+          "btn-download-combined-heatmap"
+        );
+        const btnClearMouseData = document.getElementById(
+          "btn-clear-mouse-data"
+        );
+        const btnExportMouseData = document.getElementById(
+          "btn-export-mouse-data"
+        );
+
+        if (btnStartMouseTracking) {
+          btnStartMouseTracking.addEventListener("click", () => {
+            if (mouseTracker) {
+              mouseTracker.startTracking();
+            }
+          });
+        }
+
+        if (btnStopMouseTracking) {
+          btnStopMouseTracking.addEventListener("click", () => {
+            if (mouseTracker) {
+              mouseTracker.stopTracking();
+            }
+          });
+        }
+
+        if (btnPageStats) {
+          btnPageStats.addEventListener("click", () => {
+            if (mouseTracker) {
+              mouseTracker.showPageStats();
+            }
+          });
+        }
+
+        if (btnDownloadMovement) {
+          btnDownloadMovement.addEventListener("click", () => {
+            if (mouseTracker) {
+              mouseTracker.downloadMovementHeatmap();
+            }
+          });
+        }
+
+        if (btnDownloadClicks) {
+          btnDownloadClicks.addEventListener("click", () => {
+            if (mouseTracker) {
+              mouseTracker.downloadClicksHeatmap();
+            }
+          });
+        }
+
+        if (btnDownloadScroll) {
+          btnDownloadScroll.addEventListener("click", () => {
+            if (mouseTracker) {
+              mouseTracker.downloadScrollHeatmap();
+            }
+          });
+        }
+
+        if (btnDownloadCombined) {
+          btnDownloadCombined.addEventListener("click", () => {
+            if (mouseTracker) {
+              mouseTracker.downloadCombinedHeatmap();
+            }
+          });
+        }
+
+        if (btnClearMouseData) {
+          btnClearMouseData.addEventListener("click", () => {
+            if (mouseTracker) {
+              mouseTracker.clearAllData();
+            }
+          });
+        }
+
+        if (btnExportMouseData) {
+          btnExportMouseData.addEventListener("click", () => {
+            if (mouseTracker) {
+              mouseTracker.exportToCSV();
+            }
           });
         }
       });

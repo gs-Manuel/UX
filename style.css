@@ -628,7 +628,34 @@ main article > section p time {
   padding-bottom: 0.5rem;
 }
 
-#eyetracker-controls > menu {
+/* Secciones dentro del panel */
+#eyetracker-controls > section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+#eyetracker-controls > section:first-of-type {
+  border-left-color: #0066cc;
+}
+
+#eyetracker-controls > section:last-of-type {
+  border-left-color: #28a745;
+  margin-bottom: 0;
+}
+
+#eyetracker-controls > section > h4 {
+  color: #fff;
+  font-size: 0.95rem;
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 600;
+}
+
+#eyetracker-controls > section > menu {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 0.75rem;
@@ -695,6 +722,52 @@ main article > section p time {
 }
 
 #btn-export-data {
+  background: #17a2b8;
+  color: #fff;
+}
+
+/* Mouse Tracker Buttons */
+#btn-start-mouse-tracking {
+  background: #28a745;
+  color: #fff;
+}
+
+#btn-stop-mouse-tracking {
+  background: #dc3545;
+  color: #fff;
+}
+
+#btn-page-stats {
+  background: #20c997;
+  color: #fff;
+}
+
+#btn-download-movement-heatmap {
+  background: #007bff;
+  color: #fff;
+}
+
+#btn-download-clicks-heatmap {
+  background: #fd7e14;
+  color: #fff;
+}
+
+#btn-download-scroll-heatmap {
+  background: #6f42c1;
+  color: #fff;
+}
+
+#btn-download-combined-heatmap {
+  background: #ffc107;
+  color: #333;
+}
+
+#btn-clear-mouse-data {
+  background: #6c757d;
+  color: #fff;
+}
+
+#btn-export-mouse-data {
   background: #17a2b8;
   color: #fff;
 }
