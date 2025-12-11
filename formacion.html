@@ -13,7 +13,7 @@
   </head>
   <body>
     <header>
-      <div class="header-left">
+      <div>
         <a
           href="index.html"
           style="
@@ -23,11 +23,7 @@
             color: inherit;
           "
         >
-          <img
-            src="img/fotoFrontalConFloresMoradasx64.ico"
-            alt="Logo"
-            class="header-logo"
-          />
+          <img src="img/fotoFrontalConFloresMoradasx64.ico" alt="Logo" />
           <h1>Manuel González Santos</h1>
         </a>
       </div>
@@ -56,7 +52,7 @@
           </li>
         </ul>
       </nav>
-      <form id="search-form" class="search-form">
+      <form id="search-form">
         <input
           id="search-input"
           type="text"
@@ -77,9 +73,9 @@
             />
           </svg>
         </button>
-        <div id="search-results" class="search-results"></div>
+        <ul id="search-results"></ul>
       </form>
-      <div class="language-selector">
+      <nav aria-label="Language selector">
         <button
           data-lang="es"
           onclick="i18n.setLocale('es')"
@@ -94,8 +90,23 @@
         >
           EN
         </button>
-      </div>
+      </nav>
     </header>
+
+    <!-- Contenedor para el mapa de calor -->
+    <div
+      id="heatmap-container"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        pointer-events: none;
+        display: none;
+      "
+    ></div>
 
     <nav aria-label="Breadcrumb">
       <ol id="breadcrumb-list"></ol>
@@ -105,7 +116,6 @@
       <h2>
         <span data-i18n="education.title">Formación y Experiencia</span>
         <span
-          class="help-icon"
           data-i18n-tooltip="education.tooltip"
           data-tooltip="Información detallada sobre mi formación académica y experiencia profesional en el sector TIC."
         >
@@ -136,7 +146,6 @@
           <h3>
             <span data-i18n="education.academicTitle">Formación Académica</span>
             <span
-              class="help-icon"
               data-i18n-tooltip="education.academicTooltip"
               data-tooltip="Mi trayectoria académica en Ingeniería Informática y formación complementaria."
             >
@@ -168,7 +177,7 @@
           <p>
             <span data-i18n="education.institution">Universidad de Oviedo</span>
             -
-            <em data-i18n="education.degreeYears">2019 - 2024</em>
+            <time data-i18n="education.degreeYears">2019 - 2024</time>
           </p>
           <p data-i18n="education.degreeDesc">
             Formación integral en desarrollo de software, arquitectura de
@@ -185,7 +194,7 @@
             </li>
             <li data-i18n="education.cert2">
               Curso de Cloud Computing-
-              <span class="tech-icon">
+              <span>
                 <svg viewBox="0 0 24 24" fill="#FF9900">
                   <path
                     d="M6.76 10.25c-.18 0-.36.01-.53.03C5.61 8.39 3.89 7 1.84 7c-.24 0-.48.02-.71.07C.43 7.26 0 7.82 0 8.5c0 .83.67 1.5 1.5 1.5.24 0 .47-.06.67-.16.13.88.67 1.64 1.42 2.08-.08.28-.13.58-.13.88 0 1.66 1.34 3 3 3 .89 0 1.69-.39 2.24-1h8.61c.55.61 1.35 1 2.24 1 1.66 0 3-1.34 3-3s-1.34-3-3-3c-.89 0-1.69.39-2.24 1H8.7c-.55-.61-1.35-1-2.24-1-.41 0-.8.08-1.16.23-.36-.62-1.03-1.04-1.8-1.04-.83 0-1.5.67-1.5 1.5 0 .28.08.54.21.76-.04.16-.06.32-.06.49 0 1.1.9 2 2 2h2.61zm12.79 2c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"
@@ -194,7 +203,7 @@
                 <strong>AWS</strong>
               </span>
               y
-              <span class="tech-icon">
+              <span>
                 <svg viewBox="0 0 24 24" fill="#0089D6">
                   <path
                     d="M22 3H2C.9 3 0 3.9 0 5v14c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 17H4v-2h4v2zm0-4H4v-2h4v2zm0-4H4V7h4v2zm6 8h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V7h4v2zm6 8h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V7h4v2z"
@@ -205,7 +214,7 @@
             </li>
             <li data-i18n="education.cert3">
               Desarrollo con Frameworks Modernos -
-              <span class="tech-icon">
+              <span>
                 <svg viewBox="0 0 24 24" fill="#DD0031">
                   <path
                     d="M12 2L2 6l10 4 10-4-10-4zm0 18.5L4 16v-6l8 3.2 8-3.2v6l-8 4.5z"
@@ -213,7 +222,7 @@
                 </svg>
                 <strong>Angular</strong> </span
               >,
-              <span class="tech-icon">
+              <span>
                 <svg viewBox="0 0 24 24" fill="#61DAFB">
                   <circle cx="12" cy="12" r="2" />
                   <ellipse
@@ -248,7 +257,7 @@
                 </svg>
                 <strong>React</strong> </span
               >,
-              <span class="tech-icon">
+              <span>
                 <svg viewBox="0 0 24 24" fill="#6DB33F">
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
@@ -266,7 +275,6 @@
               >Experiencia Laboral</span
             >
             <span
-              class="help-icon"
               data-i18n-tooltip="education.experienceTooltip"
               data-tooltip="Mi experiencia profesional en empresas del sector tecnológico."
             >
@@ -295,8 +303,8 @@
           <h4 data-i18n="education.job1Title">
             Desarrollador Full-Stack - Inetum
           </h4>
-          <p class="job-period">
-            <em data-i18n="education.job1Years">2023 - 2024</em>
+          <p>
+            <time data-i18n="education.job1Years">2023 - 2024</time>
           </p>
           <ul>
             <li data-i18n="education.job1Desc1">
@@ -305,7 +313,7 @@
             </li>
             <li data-i18n="education.job1Desc2">
               Implementación de frontend con
-              <span class="tech-icon">
+              <span>
                 <svg viewBox="0 0 24 24" fill="#DD0031">
                   <path
                     d="M12 2L2 6l10 4 10-4-10-4zm0 18.5L4 16v-6l8 3.2 8-3.2v6l-8 4.5z"
@@ -314,7 +322,7 @@
                 <strong>Angular</strong>
               </span>
               y backend con
-              <span class="tech-icon">
+              <span>
                 <svg viewBox="0 0 24 24" fill="#6DB33F">
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
@@ -334,8 +342,8 @@
           <h4 data-i18n="education.job2Title">
             Prácticas en Desarrollo de Software
           </h4>
-          <p class="job-period">
-            <em data-i18n="education.job2Years">2022 - 2023</em>
+          <p>
+            <time data-i18n="education.job2Years">2022 - 2023</time>
           </p>
           <ul>
             <li data-i18n="education.job2Desc1">
@@ -344,7 +352,7 @@
             </li>
             <li data-i18n="education.job2Desc2">
               Aprendizaje de tecnologías
-              <span class="tech-icon">
+              <span>
                 <svg viewBox="0 0 24 24" fill="#007396">
                   <path
                     d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573"
@@ -355,7 +363,7 @@
                 </svg>
                 <strong>Java</strong> </span
               >,
-              <span class="tech-icon">
+              <span>
                 <svg viewBox="0 0 24 24" fill="#F7DF1E">
                   <path
                     d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"
@@ -375,7 +383,6 @@
           <h3>
             <span data-i18n="education.skillsTitle">Habilidades Técnicas</span>
             <span
-              class="help-icon"
               data-i18n-tooltip="education.skillsTooltip"
               data-tooltip="Principales tecnologías y herramientas que manejo profesionalmente."
             >
@@ -442,11 +449,16 @@
     </main>
 
     <footer>
-      <div class="footer-content">
-        <div class="footer-left">
-          <p data-i18n="footer.contact">Contacto:</p>
+      <section>
+        <h2 data-i18n="footer.sectionTitle">Información y Enlaces</h2>
+        <p>
+          &copy; <time id="current-year"></time> Manuel González Santos |
+          <span data-i18n="footer.lastUpdate">Última actualización:</span>
+          <time id="last-modified"></time>
+        </p>
+        <nav aria-label="Social media">
           <a
-            href="https://www.linkedin.com/in/manuel-gonzález-santos-4b9567221/"
+            href="https://www.linkedin.com/in/gonzalez-santos-manuel/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -481,20 +493,118 @@
               />
             </svg>
           </a>
-        </div>
-        <div class="footer-right">
-          <p>&copy; <span id="current-year"></span> Manuel González Santos</p>
-          <p>
-            <span data-i18n="footer.lastUpdate">Última actualización:</span>
-            <span id="last-modified"></span>
-          </p>
-        </div>
-      </div>
+          <button
+            id="btn-toggle-eyetracker"
+            aria-label="Eye Tracker"
+            title="Eye Tracker"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"
+              />
+              <path
+                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+              />
+            </svg>
+          </button>
+        </nav>
+      </section>
     </footer>
+
+    <!-- Panel de control del Eye Tracker -->
+    <aside id="eyetracker-controls">
+      <h3 data-i18n="eyetracker.title">Eye Tracker</h3>
+      <menu>
+        <button id="btn-init-eyetracker" data-i18n="eyetracker.initCamera">
+          Iniciar Cámara
+        </button>
+        <button
+          id="btn-start-calibration"
+          disabled
+          data-i18n="eyetracker.startCalibration"
+        >
+          Iniciar Calibración
+        </button>
+        <button
+          id="btn-stop-calibration"
+          disabled
+          data-i18n="eyetracker.stopCalibration"
+        >
+          Detener Calibración
+        </button>
+        <button
+          id="btn-start-tracking"
+          disabled
+          data-i18n="eyetracker.startTracking"
+        >
+          Iniciar Tracking
+        </button>
+        <button
+          id="btn-stop-tracking"
+          disabled
+          data-i18n="eyetracker.stopTracking"
+        >
+          Detener Tracking
+        </button>
+        <button
+          id="btn-download-heatmap"
+          data-i18n="eyetracker.downloadHeatmap"
+        >
+          Descargar Heatmap
+        </button>
+        <button id="btn-clear-data" data-i18n="eyetracker.clearData">
+          Limpiar Datos
+        </button>
+        <button id="btn-export-data" data-i18n="eyetracker.exportCSV">
+          Exportar CSV
+        </button>
+      </menu>
+    </aside>
     <script defer src="i18n.js"></script>
     <script defer src="breadcrumbs.js"></script>
     <script defer src="footer.js"></script>
     <script defer src="search.js"></script>
     <script src="https://t.contentsquare.net/uxa/16ad92d68e3b2.js"></script>
+    <!-- WebGazer, Heatmap y html2canvas -->
+    <script src="webgazer.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/heatmap.js@2.0.5/build/heatmap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="eyetracker.js"></script>
+    <script>
+      // Toggle Eye Tracker Panel
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("btn-toggle-eyetracker");
+        const panel = document.getElementById("eyetracker-controls");
+
+        if (toggleBtn && panel) {
+          toggleBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            panel.classList.toggle("active");
+          });
+
+          // Cerrar panel al hacer clic fuera
+          document.addEventListener("click", function (e) {
+            if (
+              panel.classList.contains("active") &&
+              !panel.contains(e.target) &&
+              e.target !== toggleBtn
+            ) {
+              panel.classList.remove("active");
+            }
+          });
+
+          // Prevenir que clics dentro del panel lo cierren
+          panel.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+        }
+      });
+    </script>
   </body>
 </html>

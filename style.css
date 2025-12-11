@@ -59,7 +59,7 @@ header nav {
   justify-self: center;
 }
 
-header > div:last-of-type {
+header > nav:last-of-type {
   justify-self: end;
 }
 
@@ -88,13 +88,13 @@ header > div:last-of-type {
 }
 
 /* Selector de idioma */
-header > div:last-of-type {
+header > nav:last-of-type {
   display: flex;
   gap: 0.5rem;
   justify-self: end;
 }
 
-header > div:last-of-type button {
+header > nav:last-of-type button {
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
   border: 0.1rem solid rgba(255, 255, 255, 0.3);
@@ -106,12 +106,12 @@ header > div:last-of-type button {
   transition: all 0.3s;
 }
 
-header > div:last-of-type button:hover {
+header > nav:last-of-type button:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-0.1rem);
 }
 
-header > div:last-of-type button[data-lang][style*="background"] {
+header > nav:last-of-type button[data-lang][style*="background"] {
   background: #0066cc;
   border-color: #0066cc;
 }
@@ -170,7 +170,7 @@ header form button svg {
 }
 
 /* Resultados de búsqueda */
-header form > div {
+header form > ul {
   display: none;
   position: absolute;
   top: 100%;
@@ -187,7 +187,7 @@ header form > div {
   min-width: 20rem;
 }
 
-header form > div > div {
+header form > ul > div {
   padding: 1rem;
   border-bottom: 0.1rem solid #e8f0f8;
 }
@@ -200,7 +200,7 @@ header form > div > div:hover {
   background: #f8f9fa;
 }
 
-header form > div > div > a {
+header form > ul > div > a {
   color: #0066cc;
   text-decoration: none;
   font-weight: bold;
@@ -209,19 +209,19 @@ header form > div > div > a {
   margin-bottom: 0.3rem;
 }
 
-header form > div > div > a:hover {
+header form > ul > div > a:hover {
   color: #004080;
   text-decoration: underline;
 }
 
-header form > div > div > p {
+header form > ul > div > p {
   color: #666;
   font-size: 0.9rem;
   line-height: 1.4;
   margin: 0;
 }
 
-header form > div > div > p strong {
+header form > ul > div > p strong {
   color: #333;
   font-weight: bold;
 }
@@ -233,7 +233,7 @@ header form > div > div > p strong {
     margin-top: 0.5rem;
   }
 
-  header form > div {
+  header form > ul {
     min-width: 100%;
     max-width: 100%;
   }
@@ -451,9 +451,18 @@ footer {
   font-size: 0.9rem;
 }
 
-footer > div {
+footer > section {
   max-width: 60rem;
   margin: 0 auto;
+}
+
+footer section > h2 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  letter-spacing: 0.05rem;
+  justify-content: center;
 }
 
 footer p {
@@ -461,9 +470,10 @@ footer p {
   line-height: 1.6;
 }
 
-footer div div {
+footer nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1.5rem;
   margin-top: 1rem;
 }
@@ -553,11 +563,138 @@ main article > section span:has(svg) svg {
 }
 
 /* Timeline para experiencia laboral */
-main article > section p:has(em) {
+main article > section p:has(time) {
   display: inline-block;
   background: #e8f0f8;
   padding: 0.25rem 0.75rem;
   border-radius: 0.3rem;
   font-size: 0.9rem;
   margin-bottom: 0.75rem;
+}
+
+main article > section p time {
+  font-style: italic;
+}
+
+/* Eye Tracker Toggle Button */
+#btn-toggle-eyetracker {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#btn-toggle-eyetracker:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+#btn-toggle-eyetracker svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Eye Tracker Controls Panel (aside) */
+#eyetracker-controls {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  z-index: 10000;
+  background: rgba(0, 64, 128, 0.98);
+  padding: 1.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+  max-width: 90%;
+  width: 600px;
+}
+
+#eyetracker-controls.active {
+  transform: translateX(-50%) translateY(0);
+}
+
+#eyetracker-controls h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+#eyetracker-controls > menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+#eyetracker-controls button {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+#eyetracker-controls button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#eyetracker-controls button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+#eyetracker-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#btn-init-eyetracker {
+  background: #0066cc;
+  color: #fff;
+}
+
+#btn-start-calibration {
+  background: #17a2b8;
+  color: #fff;
+}
+
+#btn-stop-calibration {
+  background: #6c757d;
+  color: #fff;
+}
+
+#btn-start-tracking {
+  background: #28a745;
+  color: #fff;
+}
+
+#btn-stop-tracking {
+  background: #dc3545;
+  color: #fff;
+}
+
+#btn-download-heatmap {
+  background: #ffc107;
+  color: #333;
+}
+
+#btn-clear-data {
+  background: #6c757d;
+  color: #fff;
+}
+
+#btn-export-data {
+  background: #17a2b8;
+  color: #fff;
 }

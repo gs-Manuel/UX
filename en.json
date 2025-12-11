@@ -99,6 +99,18 @@
     "skillMethodologyList": "Scrum, Kanban, Agile Development"
   },
   "footer": {
+    "sectionTitle": "Information and Links",
     "lastUpdate": "Last update:"
+  },
+  "eyetracker": {
+    "title": "Eye Tracker",
+    "initCamera": "Start Camera",
+    "startCalibration": "Start Calibration",
+    "stopCalibration": "Stop Calibration",
+    "startTracking": "Start Tracking",
+    "stopTracking": "Stop Tracking",
+    "downloadHeatmap": "Download Heatmap",
+    "clearData": "Clear Data",
+    "exportCSV": "Export CSV"
   }
 }

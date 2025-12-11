@@ -13,7 +13,7 @@
   </head>
   <body>
     <header>
-      <div class="header-left">
+      <div>
         <a
           href="index.html"
           style="
@@ -23,11 +23,7 @@
             color: inherit;
           "
         >
-          <img
-            src="img/fotoFrontalConFloresMoradasx64.ico"
-            alt="Logo"
-            class="header-logo"
-          />
+          <img src="img/fotoFrontalConFloresMoradasx64.ico" alt="Logo" />
           <h1>Manuel González Santos</h1>
         </a>
       </div>
@@ -56,7 +52,7 @@
           </li>
         </ul>
       </nav>
-      <form id="search-form" class="search-form">
+      <form id="search-form">
         <input
           id="search-input"
           type="text"
@@ -77,9 +73,9 @@
             />
           </svg>
         </button>
-        <div id="search-results" class="search-results"></div>
+        <ul id="search-results"></ul>
       </form>
-      <div class="language-selector">
+      <nav aria-label="Language selector">
         <button
           data-lang="es"
           onclick="i18n.setLocale('es')"
@@ -94,8 +90,23 @@
         >
           EN
         </button>
-      </div>
+      </nav>
     </header>
+
+    <!-- Contenedor para el mapa de calor -->
+    <div
+      id="heatmap-container"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        pointer-events: none;
+        display: none;
+      "
+    ></div>
 
     <nav aria-label="Breadcrumb">
       <ol id="breadcrumb-list"></ol>
@@ -105,7 +116,6 @@
       <h2>
         <span data-i18n="index.title">Sobre mí</span>
         <span
-          class="help-icon"
           data-i18n-tooltip="index.tooltip"
           data-tooltip="En esta sección encontrarás información personal sobre mi formación académica y datos de contacto profesional."
         >
@@ -129,7 +139,6 @@
         <h3>
           <span data-i18n="index.personalInfo">Información Personal</span>
           <span
-            class="help-icon"
             data-i18n-tooltip="index.personalInfoTooltip"
             data-tooltip="Presentación personal que incluye mi formación como Ingeniero Informático y mi enfoque profesional en desarrollo de software."
           >
@@ -166,13 +175,14 @@
     </main>
 
     <footer>
-      <div>
+      <section>
+        <h2 data-i18n="footer.sectionTitle">Información y Enlaces</h2>
         <p>
-          &copy; <span id="current-year"></span> Manuel González Santos |
+          &copy; <time id="current-year"></time> Manuel González Santos |
           <span data-i18n="footer.lastUpdate">Última actualización:</span>
-          <span id="last-modified"></span>
+          <time id="last-modified"></time>
         </p>
-        <div>
+        <nav aria-label="Social media">
           <a
             href="https://www.linkedin.com/in/gonzalez-santos-manuel/"
             target="_blank"
@@ -209,13 +219,118 @@
               />
             </svg>
           </a>
-        </div>
-      </div>
+          <button
+            id="btn-toggle-eyetracker"
+            aria-label="Eye Tracker"
+            title="Eye Tracker"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"
+              />
+              <path
+                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
+              />
+            </svg>
+          </button>
+        </nav>
+      </section>
     </footer>
+
+    <!-- Panel de control del Eye Tracker -->
+    <aside id="eyetracker-controls">
+      <h3 data-i18n="eyetracker.title">Eye Tracker</h3>
+      <menu>
+        <button id="btn-init-eyetracker" data-i18n="eyetracker.initCamera">
+          Iniciar Cámara
+        </button>
+        <button
+          id="btn-start-calibration"
+          disabled
+          data-i18n="eyetracker.startCalibration"
+        >
+          Iniciar Calibración
+        </button>
+        <button
+          id="btn-stop-calibration"
+          disabled
+          data-i18n="eyetracker.stopCalibration"
+        >
+          Detener Calibración
+        </button>
+        <button
+          id="btn-start-tracking"
+          disabled
+          data-i18n="eyetracker.startTracking"
+        >
+          Iniciar Tracking
+        </button>
+        <button
+          id="btn-stop-tracking"
+          disabled
+          data-i18n="eyetracker.stopTracking"
+        >
+          Detener Tracking
+        </button>
+        <button
+          id="btn-download-heatmap"
+          data-i18n="eyetracker.downloadHeatmap"
+        >
+          Descargar Heatmap
+        </button>
+        <button id="btn-clear-data" data-i18n="eyetracker.clearData">
+          Limpiar Datos
+        </button>
+        <button id="btn-export-data" data-i18n="eyetracker.exportCSV">
+          Exportar CSV
+        </button>
+      </menu>
+    </aside>
     <script defer src="i18n.js"></script>
     <script defer src="breadcrumbs.js"></script>
     <script defer src="footer.js"></script>
     <script defer src="search.js"></script>
     <script src="https://t.contentsquare.net/uxa/16ad92d68e3b2.js"></script>
+    <!-- WebGazer, Heatmap y html2canvas -->
+    <script src="webgazer.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/heatmap.js@2.0.5/build/heatmap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="eyetracker.js"></script>
+    <script>
+      // Toggle Eye Tracker Panel
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleBtn = document.getElementById("btn-toggle-eyetracker");
+        const panel = document.getElementById("eyetracker-controls");
+
+        if (toggleBtn && panel) {
+          toggleBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            panel.classList.toggle("active");
+          });
+
+          // Cerrar panel al hacer clic fuera
+          document.addEventListener("click", function (e) {
+            if (
+              panel.classList.contains("active") &&
+              !panel.contains(e.target) &&
+              e.target !== toggleBtn
+            ) {
+              panel.classList.remove("active");
+            }
+          });
+
+          // Prevenir que clics dentro del panel lo cierren
+          panel.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+        }
+      });
+    </script>
   </body>
 </html>
