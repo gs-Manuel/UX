@@ -727,10 +727,8 @@ function initEyeTracker() {
     const restored = await eyeTracker.restoreTrackingState();
     updateButtonStates();
 
-    // Procesar heatmap automático si está en progreso
-    if (restored || eyeTracker.isTracking) {
-      await eyeTracker.processAutomaticHeatmap();
-    }
+    // SIEMPRE verificar si hay proceso automático pendiente
+    await eyeTracker.processAutomaticHeatmap();
 
     return restored;
   }
