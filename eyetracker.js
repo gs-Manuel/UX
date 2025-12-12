@@ -169,7 +169,10 @@ class EyeTracker {
 
     if (webgazerRunning === "true" && typeof webgazer !== "undefined") {
       try {
-        // Solo reconfigurar el listener para esta página
+        // Reanudar WebGazer si estaba pausado
+        await webgazer.resume();
+        
+        // Reconfigurar el listener para esta página
         webgazer.setGazeListener((data, clock) => {
           if (data && this.isTracking) {
             const x = Math.round(data.x + window.scrollX);
@@ -202,17 +205,8 @@ class EyeTracker {
         return true;
       } catch (e) {
         console.error("Error al reconectar WebGazer:", e);
-      }
-    }
-
-    try {
-      // Configurar WebGazer por primera vez
-      webgazer
-        .setGazeListener((data, clock) => {
-          if (data && this.isTracking) {
-            const x = Math.round(data.x + window.scrollX);
-            const y = Math.round(data.y + window.scrollY);
-
+        // Si falla la reconexión, limpiar marca e intentar inicialización completa
+        localStorage.removeItem("webgazer_running");
             this.gazeData.push({
               x: x,
               y: y,

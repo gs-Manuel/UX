@@ -13,6 +13,7 @@
     "projects": "Projects"
   },
   "search": {
+    "label": "Search:",
     "placeholder": "Search on my site..."
   },
   "index": {

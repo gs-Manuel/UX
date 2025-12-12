@@ -126,6 +126,13 @@ header form {
   position: relative;
 }
 
+header form label {
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
 header form input[type="text"] {
   flex: 1;
   padding: 0.5rem 0.75rem;
@@ -143,7 +150,7 @@ header form input[type="text"]:focus {
 }
 
 header form input[type="text"]::placeholder {
-  color: #666;
+  color: #555;
 }
 
 header form button {
@@ -215,14 +222,14 @@ header form > ul > div > a:hover {
 }
 
 header form > ul > div > p {
-  color: #666;
+  color: #444;
   font-size: 0.9rem;
   line-height: 1.4;
   margin: 0;
 }
 
 header form > ul > div > p strong {
-  color: #333;
+  color: #222;
   font-weight: bold;
 }
 

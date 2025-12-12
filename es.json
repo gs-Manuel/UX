@@ -13,6 +13,7 @@
     "projects": "Proyectos"
   },
   "search": {
+    "label": "Buscar:",
     "placeholder": "Buscar en mi sitio..."
   },
   "index": {
