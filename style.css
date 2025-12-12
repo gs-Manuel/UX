@@ -121,7 +121,7 @@ header form {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  max-width: 15rem;
+  max-width: 22rem;
   justify-self: center;
   position: relative;
 }
@@ -131,6 +131,7 @@ header form label {
   font-weight: bold;
   font-size: 0.9rem;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 header form input[type="text"] {
